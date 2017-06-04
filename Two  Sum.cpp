@@ -6,6 +6,10 @@ Given nums = [2, 7, 11, 15], target = 9,
 Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
 */
+/*
+思路：
+以空间换时间，将数组中每个元素存入一个hash表中，再通过find函数查找，要注意排除两个相同下标的情况。
+*/
 
 class Solution {
 public:
