@@ -9,7 +9,7 @@ Note:
 Elements of the given array will be in the range [-10,000, 10,000].*/
 
 /*
-思路：暴力，两层循环
+思路1：暴力，两层循环
 */
 
 class Solution {
@@ -25,5 +25,24 @@ public:
             maxSum = maxSum > tmp ? maxSum : tmp;
         }
         return maxSum / k;
+    }
+};
+
+/*
+思路2：维护一个大小为k的窗口，更新其中最大的和
+*/
+
+class Solution {
+public:
+    double findMaxAverage(vector<int>& nums, int k) {
+        int maxSum = INT_MIN;
+        int tmpSum = 0,index = k;
+        while(index --) tmpSum += nums[index];
+        maxSum = tmpSum;
+        for(int i = k;i < nums.size();i ++) {
+            tmpSum += nums[i] - nums[i - k];
+            maxSum = max(maxSum, tmpSum);
+        }
+        return (double)maxSum / k;
     }
 };
