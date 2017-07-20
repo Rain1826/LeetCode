@@ -1,2 +1,2 @@
 # LeetCode
-Algorithm practice
+Algorithm and sql practice
